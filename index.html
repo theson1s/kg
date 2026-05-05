@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KG - Kings Guard | Divine Military Roleplay</title>
+    <title>KG Syndicate - Faction Hub</title>
     <style>
         * {
             margin: 0;
@@ -12,200 +12,278 @@
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 100%);
-            color: #e0e0e0;
-            line-height: 1.6;
+            font-family: 'Segoe UI', 'Courier New', monospace;
+            background: linear-gradient(145deg, #0c0c0c 0%, #1a120b 100%);
+            color: #ececec;
+            line-height: 1.5;
         }
 
         /* Header */
         .header {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9));
-            border-bottom: 2px solid #d4af37;
+            padding: 40px 20px 20px;
+            border-bottom: 2px solid #b87c4f;
+            background: rgba(0,0,0,0.6);
         }
 
         .logo {
-            font-size: 64px;
-            font-weight: bold;
+            font-size: 56px;
+            font-weight: 800;
             letter-spacing: 4px;
-            background: linear-gradient(135deg, #d4af37, #ffd700);
+            background: linear-gradient(135deg, #c9a87b, #e3c194);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
 
-        .subtitle {
-            font-size: 20px;
-            color: #d4af37;
-            margin-top: 10px;
-        }
-
-        .tagline {
-            font-size: 24px;
-            margin-top: 20px;
-            font-style: italic;
+        .sub {
+            font-size: 16px;
+            color: #b87c4f;
+            letter-spacing: 2px;
+            margin-top: 8px;
         }
 
         /* Navigation */
         .nav {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            padding: 20px;
-            background: rgba(0,0,0,0.8);
-            border-bottom: 1px solid #333;
+            gap: 32px;
+            padding: 16px;
+            background: #0a0604;
+            border-bottom: 1px solid #2a1e14;
             flex-wrap: wrap;
         }
 
         .nav a {
-            color: #d4af37;
+            color: #d9b48b;
             text-decoration: none;
-            font-size: 18px;
-            transition: 0.3s;
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.2s;
         }
 
         .nav a:hover {
-            color: #ffd700;
-            text-shadow: 0 0 5px gold;
+            color: #f5cf9f;
+            text-shadow: 0 0 3px #a05e2c;
         }
 
         /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 32px 24px;
+        }
+
+        /* Faction Grid */
+        .faction-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 48px;
+            justify-content: center;
+        }
+
+        .faction-card {
+            background: #14100c;
+            border-left: 4px solid #b87c4f;
+            padding: 14px 20px;
+            min-width: 200px;
+            flex: 1 1 auto;
+            border-radius: 0 12px 12px 0;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+
+        .faction-card:hover {
+            transform: translateX(4px);
+            background: #1e1711;
+            border-left-color: #e0a56b;
+        }
+
+        .faction-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e6c394;
+            letter-spacing: -0.5px;
+        }
+
+        .faction-members {
+            font-size: 13px;
+            color: #aa8a60;
+            margin-top: 6px;
         }
 
         /* Sections */
         .section {
-            margin-bottom: 60px;
+            margin-bottom: 56px;
         }
 
         .section-title {
-            font-size: 36px;
-            color: #d4af37;
-            border-left: 4px solid #d4af37;
-            padding-left: 20px;
-            margin-bottom: 30px;
-        }
-
-        /* Cards */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: rgba(20,20,20,0.8);
-            border-radius: 10px;
-            padding: 25px;
-            border: 1px solid #333;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            border-color: #d4af37;
-            transform: translateY(-5px);
-        }
-
-        .card-title {
             font-size: 24px;
-            color: #d4af37;
-            margin-bottom: 15px;
+            font-weight: 700;
+            border-left: 4px solid #b87c4f;
+            padding-left: 16px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #d9b48b;
         }
 
-        /* Rank List */
-        .rank-list {
+        .clan-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
             list-style: none;
         }
 
-        .rank-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px;
-            border-bottom: 1px solid #333;
+        .clan-list li {
+            background: #1e1610;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #cfb284;
+            border: 1px solid #332419;
         }
 
-        .rank-tag {
+        .clan-list li strong {
+            color: #f3d59b;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 18px;
+            margin-top: 16px;
+        }
+
+        .team-card {
+            background: #100b08;
+            padding: 18px;
+            border-radius: 20px;
+            border: 1px solid #2c1f15;
+            text-align: center;
+        }
+
+        .team-name {
+            font-size: 18px;
             font-weight: bold;
-            color: #d4af37;
-            font-family: monospace;
+            color: #edd6a8;
+        }
+
+        .team-role {
+            font-size: 12px;
+            color: #b87c4f;
+            margin-top: 8px;
+        }
+
+        /* Button Grid */
+        .button-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #1e1610;
+            color: #e6c394;
+            padding: 14px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            border: 1px solid #b87c4f;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #b87c4f;
+            color: #0c0c0c;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(184,124,79,0.5);
+        }
+
+        .game-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .game-card {
+            background: #1a140f;
+            padding: 16px 20px;
+            border-radius: 16px;
+            border: 1px solid #332419;
+            transition: 0.2s;
+        }
+
+        .game-card:hover {
+            border-color: #b87c4f;
+            transform: translateY(-3px);
+        }
+
+        .game-card a {
+            color: #e6c394;
+            text-decoration: none;
+            font-weight: bold;
             font-size: 16px;
         }
 
-        .rank-name {
-            color: #e0e0e0;
-        }
-
-        .rank-desc {
+        .game-card p {
             font-size: 12px;
-            color: #888;
+            color: #aa8a60;
+            margin-top: 8px;
         }
 
-        /* Lore Cards */
-        .lore-card {
-            background: rgba(0,0,0,0.6);
-            border-left: 3px solid #d4af37;
-            padding: 20px;
-            margin-bottom: 20px;
+        .profile-card {
+            background: #100b08;
+            padding: 12px 20px;
+            border-radius: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .lore-title {
-            font-size: 22px;
-            color: #d4af37;
-            margin-bottom: 10px;
+        .profile-rank {
+            color: #e6c394;
+            font-weight: bold;
         }
 
-        /* Footer */
+        .profile-link {
+            color: #b87c4f;
+            text-decoration: none;
+        }
+
+        .profile-link:hover {
+            color: #e6c394;
+        }
+
+        hr {
+            border-color: #2a1f16;
+            margin: 40px 0;
+        }
+
         .footer {
             text-align: center;
-            padding: 40px;
-            background: rgba(0,0,0,0.9);
-            border-top: 1px solid #333;
+            padding: 40px 20px;
+            background: #060302;
+            font-size: 12px;
+            color: #6e5a46;
         }
 
-        .discord-btn {
-            display: inline-block;
-            background: #5865F2;
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 10px;
-            transition: 0.3s;
-        }
-
-        .discord-btn:hover {
-            background: #4752c4;
-            transform: scale(1.05);
-        }
-
-        .roblox-btn {
-            display: inline-block;
-            background: #1e1e1e;
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 10px;
-            transition: 0.3s;
-            border: 1px solid #d4af37;
-        }
-
-        .roblox-btn:hover {
-            background: #2a2a2a;
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 768px) {
-            .logo { font-size: 40px; }
-            .nav { gap: 15px; }
-            .section-title { font-size: 28px; }
+        @media (max-width: 700px) {
+            .logo { font-size: 38px; }
+            .nav { gap: 16px; }
+            .faction-card { min-width: 160px; }
         }
     </style>
 </head>
@@ -213,135 +291,147 @@
 
     <!-- Header -->
     <div class="header">
-        <div class="logo">𝐊𝐆</div>
-        <div class="subtitle">𝐊𝐢𝐧𝐠𝐬 𝐆𝐚𝐮𝐫𝐝</div>
-        <div class="tagline">"Honor. Loyalty. Supremacy."</div>
+        <div class="logo">KG SYNDICATE</div>
+        <div class="sub">━━ 極道 ━━</div>
     </div>
 
     <!-- Navigation -->
     <div class="nav">
-        <a href="#home">Home</a>
-        <a href="#lore">Lore</a>
-        <a href="#ranks">Ranks</a>
-        <a href="#factions">Factions</a>
-        <a href="#join">Join Us</a>
+        <a href="#factions">FACTIONS</a>
+        <a href="#clans">CLANS</a>
+        <a href="#team">TEAM</a>
+        <a href="#games">OPERATIONAL GAMES</a>
+        <a href="#management">MANAGEMENT</a>
     </div>
 
-    <!-- Main Content -->
     <div class="container">
 
-        <!-- Home Section -->
-        <section id="home" class="section">
-            <h2 class="section-title">𝐖𝐡𝐨 𝐖𝐞 𝐀𝐫𝐞</h2>
-            <p style="font-size: 18px;">𝙏𝙝𝙚 𝙆𝙞𝙣𝙜𝙨 𝙂𝙖𝙪𝙧𝙙 𝙞𝙨 𝙩𝙝𝙚 𝙚𝙡𝙞𝙩𝙚 𝙢𝙞𝙡𝙞𝙩𝙖𝙧𝙮 𝙛𝙤𝙧𝙘𝙚 𝙙𝙚𝙙𝙞𝙘𝙖𝙩𝙚𝙙 𝙩𝙤 𝙢𝙖𝙞𝙣𝙩𝙖𝙞𝙣𝙞𝙣𝙜 𝙤𝙧𝙙𝙚𝙧, 𝙙𝙤𝙢𝙞𝙣𝙖𝙣𝙘𝙚, 𝙖𝙣𝙙 𝙝𝙤𝙣𝙤𝙧 𝙖𝙘𝙧𝙤𝙨𝙨 𝙖𝙡𝙡 𝙧𝙚𝙖𝙡𝙢𝙨.</p>
-            <br>
-            <p>𝙁𝙤𝙪𝙣𝙙𝙚𝙙 𝙞𝙣 𝙩𝙝𝙚 𝙘𝙧𝙪𝙘𝙞𝙗𝙡𝙚 𝙤𝙛 𝙞𝙣𝙛𝙞𝙣𝙞𝙩𝙚 𝙬𝙖𝙧𝙛𝙖𝙧𝙚, 𝙬𝙚 𝙨𝙩𝙖𝙣𝙙 𝙖𝙨 𝙩𝙝𝙚 𝙪𝙣𝙮𝙞𝙚𝙡𝙙𝙞𝙣𝙜 𝙨𝙝𝙞𝙚𝙡𝙙 𝙖𝙜𝙖𝙞𝙣𝙨𝙩 𝙘𝙝𝙖𝙤𝙨.</p>
+        <!-- HEAD OF OPERATIONS -->
+        <div class="faction-card" style="max-width: 300px; margin-bottom: 40px;">
+            <div class="faction-title">HEAD OF OPERATIONS</div>
+            <div class="faction-members">Tadahiro-WarCommander</div>
+        </div>
+
+        <!-- ALLIES / OPPOSITION / NEUTRAL / DISBANDED -->
+        <div class="faction-grid">
+            <div class="faction-card">
+                <div class="faction-title">ALLIES</div>
+                <div class="faction-members">Michiaka-ikka 高松一族<br>森山一家 Moriyama-ikka</div>
+            </div>
+            <div class="faction-card">
+                <div class="faction-title">OPPOSITION</div>
+                <div class="faction-members">KG<br>刻聖·Kensei-Tai<br>Shigaki-Ikka 志垣一家</div>
+            </div>
+            <div class="faction-card">
+                <div class="faction-title">NEUTRAL</div>
+                <div class="faction-members">@1<br>@1<br>@1</div>
+            </div>
+            <div class="faction-card">
+                <div class="faction-title">DISBANDED</div>
+                <div class="faction-members">周山一家 Okayama-ikka<br>Chosen Devils 選<br>Aldmyr Family</div>
+            </div>
+        </div>
+
+        <!-- CLANS SECTION -->
+        <section id="clans" class="section">
+            <h2 class="section-title">CLANFILES</h2>
+            <ul class="clan-list">
+                <li><strong>KGSYNDICATE</strong></li>
+                <li><strong>KhaosGeneral-Spearhead</strong> @2</li>
+                <li><strong>Kilihito</strong></li>
+                <li><strong>雪一家·Setsuryu-Ikka</strong></li>
+                <li><strong>Michiaka-ikka</strong> 高松一族</li>
+                <li><strong>森山一家</strong> Moriyama-ikka</li>
+                <li><strong>刻聖·Kensei-Tai</strong></li>
+            </ul>
         </section>
 
-        <!-- Lore Section -->
-        <section id="lore" class="section">
-            <h2 class="section-title">📖 𝐓𝐡𝐞 𝐋𝐨𝐫𝐞</h2>
-            
-            <div class="lore-card">
-                <div class="lore-title">⚔️ 𝙏𝙝𝙚 𝙊𝙧𝙞𝙜𝙞𝙣</div>
-                <p>In the beginning, there was only conflict. The realm of Shinjuku stood divided, warring factions clashing endlessly. From the ashes rose a single figure who united the broken pieces under one banner - The Kings Guard.</p>
-            </div>
-
-            <div class="lore-card">
-                <div class="lore-title">🏆 𝙏𝙝𝙚 𝙂𝙧𝙚𝙖𝙩 𝙒𝙖𝙧</div>
-                <p>The Battle of Crimson Field marked our greatest triumph. Outnumbered 10 to 1, the Kings Guard held the line for seven days and seven nights. When dawn broke on the eighth day, our enemies had retreated, and our legend was forged in blood and steel.</p>
-            </div>
-
-            <div class="lore-card">
-                <div class="lore-title">🔱 𝙏𝙝𝙚 𝘾𝙤𝙙𝙚 𝙤𝙛 𝙃𝙤𝙣𝙤𝙧</div>
-                <p>Every member of KG lives by three principles: Honor above all, Loyalty without question, Supremacy through strength. Break the code, and you are forgotten. Uphold it, and you become legend.</p>
-            </div>
-        </section>
-
-        <!-- Ranks Section -->
-        <section id="ranks" class="section">
-            <h2 class="section-title">🎖️ 𝐓𝐡𝐞 𝐇𝐢𝐞𝐫𝐚𝐫𝐜𝐡𝐲</h2>
-            
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-title">High Command</div>
-                    <div class="rank-item"><span class="rank-tag">[DG]</span><span class="rank-name">Divine General</span></div>
-                    <div class="rank-item"><span class="rank-tag">[WM]</span><span class="rank-name">War Master</span></div>
-                    <div class="rank-item"><span class="rank-tag">[DC]</span><span class="rank-name">Divine Commander</span></div>
-                    <div class="rank-item"><span class="rank-tag">[SC]</span><span class="rank-name">Supreme Captain</span></div>
-                    <div class="rank-item"><span class="rank-tag">[WL]</span><span class="rank-name">Warlord</span></div>
-                    <div class="rank-item"><span class="rank-tag">[MJ]</span><span class="rank-name">Major</span></div>
+        <!-- TEAM SECTION -->
+        <section id="team" class="section">
+            <h2 class="section-title">TEAM</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-name">Tadahiro-WarCommander</div>
+                    <div class="team-role">Head of Operations</div>
                 </div>
-
-                <div class="card">
-                    <div class="card-title">Oversight</div>
-                    <div class="rank-item"><span class="rank-tag">[SO]</span><span class="rank-name">Server Oversight</span></div>
-                    <div class="rank-item"><span class="rank-tag">[WO]</span><span class="rank-name">War Oversight</span></div>
+                <div class="team-card">
+                    <div class="team-name">KGSYNDICATE</div>
+                    <div class="team-role">Founder</div>
                 </div>
-
-                <div class="card">
-                    <div class="card-title">Officers</div>
-                    <div class="rank-item"><span class="rank-tag">[BC]</span><span class="rank-name">Battle Captain</span></div>
-                    <div class="rank-item"><span class="rank-tag">[FC]</span><span class="rank-name">Field Commander</span></div>
-                    <div class="rank-item"><span class="rank-tag">[FS]</span><span class="rank-name">Field Specialist</span></div>
-                    <div class="rank-item"><span class="rank-tag">[OL]</span><span class="rank-name">Operations Leader</span></div>
+                <div class="team-card">
+                    <div class="team-name">KhaosGeneral-Spearhead</div>
+                    <div class="team-role">Command</div>
                 </div>
-
-                <div class="card">
-                    <div class="card-title">NCOs & Enlisted</div>
-                    <div class="rank-item"><span class="rank-tag">[TO]</span><span class="rank-name">Tactical Operative</span></div>
-                    <div class="rank-item"><span class="rank-tag">[SL]</span><span class="rank-name">Squad Leader</span></div>
-                    <div class="rank-item"><span class="rank-tag">[OP]</span><span class="rank-name">Operative</span></div>
-                    <div class="rank-item"><span class="rank-tag">[TR]</span><span class="rank-name">Trooper</span></div>
-                    <div class="rank-item"><span class="rank-tag">[CD]</span><span class="rank-name">Cadet</span></div>
-                    <div class="rank-item"><span class="rank-tag">[RC]</span><span class="rank-name">Recruit</span></div>
-                    <div class="rank-item"><span class="rank-tag">[PR]</span><span class="rank-name">Prospect</span></div>
+                <div class="team-card">
+                    <div class="team-name">Kilihito</div>
+                    <div class="team-role">Enforcer</div>
                 </div>
             </div>
         </section>
 
-        <!-- Factions Section -->
-        <section id="factions" class="section">
-            <h2 class="section-title">⚔️ 𝐅𝐚𝐜𝐭𝐢𝐨𝐧𝐬</h2>
-            
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-title">First Division</div>
-                    <p>The vanguard. First into battle, last to leave. Known for unmatched aggression and precision.</p>
+        <!-- OPERATIONAL GAMES -->
+        <section id="games" class="section">
+            <h2 class="section-title">OPERATIONAL GAMES</h2>
+            <div class="game-list">
+                <div class="game-card">
+                    <a href="https://www.roblox.com/games/17375940438/SHINJUKU-1988" target="_blank">SHINJUKU 1988</a>
+                    <p>We march to our deaths in pursuit of the ill-gotten, the ephemeral.</p>
                 </div>
-                <div class="card">
-                    <div class="card-title">Second Division</div>
-                    <p>Strategic warfare. Masters of battlefield control and defensive tactics.</p>
+                <div class="game-card">
+                    <a href="https://www.roblox.com/games/16541340872/Clark-County" target="_blank">Clark County</a>
+                    <p>Operational territory in the heart of Nevada.</p>
                 </div>
-                <div class="card">
-                    <div class="card-title">Special Operations</div>
-                    <p>The shadows of KG. Covert missions, reconnaissance, and high-value eliminations.</p>
+                <div class="game-card">
+                    <a href="https://www.roblox.com/games/4245915895/Miami-1986" target="_blank">Miami 1986</a>
+                    <p>80s Miami life — faction wars, law enforcement, criminal empires.</p>
                 </div>
-                <div class="card">
-                    <div class="card-title">Training Corps</div>
-                    <p>Where legends are forged. New recruits prove their worth before joining active divisions.</p>
+                <div class="game-card">
+                    <a href="https://www.roblox.com/games/6394205669/Shinjuku-2006" target="_blank">Shinjuku, 2006</a>
+                    <p>Kabukicho's largest ever crime wave — scavenge, run, kill to survive.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Join Section -->
-        <section id="join" class="section">
-            <h2 class="section-title">🔗 𝐉𝐨𝐢𝐧 𝐔𝐬</h2>
-            <p style="text-align: center; font-size: 18px; margin-bottom: 30px;">Ready to write your name into the legends of KG?</p>
-            
-            <div style="text-align: center;">
-                <a href="YOUR_DISCORD_INVITE_HERE" class="discord-btn">🎮 Join Our Discord</a>
-                <a href="YOUR_ROBLOX_GROUP_HERE" class="roblox-btn">🕹️ Join Roblox Group</a>
+        <!-- MANAGEMENT + RANKS -->
+        <section id="management" class="section">
+            <h2 class="section-title">MANAGEMENT / COMMAND</h2>
+            <div class="team-grid">
+                <div class="profile-card">
+                    <span class="profile-rank">[DG] Divine General</span>
+                    <a class="profile-link" href="https://www.roblox.com/users/1855859561/profile" target="_blank">View Profile →</a>
+                </div>
+                <div class="profile-card">
+                    <span class="profile-rank">[WM] Warbound Sovereign</span>
+                    <a class="profile-link" href="https://www.roblox.com/users/10086745469/profile" target="_blank">View Profile →</a>
+                </div>
+                <div class="profile-card">
+                    <span class="profile-rank">[WM] Warbound Sovereign</span>
+                    <a class="profile-link" href="https://www.roblox.com/users/646026255/profile" target="_blank">View Profile →</a>
+                </div>
+                <div class="profile-card">
+                    <span class="profile-rank">[DC] Divine Commander</span>
+                    <a class="profile-link" href="https://www.roblox.com/users/3330430792/profile" target="_blank">View Profile →</a>
+                </div>
+                <div class="profile-card">
+                    <span class="profile-rank">[WL] Warlord</span>
+                    <a class="profile-link" href="https://www.roblox.com/users/93042625/profile" target="_blank">View Profile →</a>
+                </div>
             </div>
         </section>
+
+        <!-- FOOTER LINKS (Buttons) -->
+        <div class="button-grid">
+            <a href="#clans" class="btn">CLANFILES</a>
+            <a href="#games" class="btn">OPERATIONAL GAMES</a>
+            <a href="#management" class="btn">CATHEDRAL / MANAGEMENT</a>
+            <a href="#" class="btn">ABOUT US</a>
+        </div>
 
     </div>
 
-    <!-- Footer -->
     <div class="footer">
-        <p>𝐊𝐆 - 𝐊𝐢𝐧𝐠𝐬 𝐆𝐚𝐮𝐫𝐝</p>
-        <p style="font-size: 12px; margin-top: 10px;">"Honor. Loyalty. Supremacy."</p>
-        <p style="font-size: 10px; margin-top: 20px;">© 2026 Kings Guard | All rights reserved.</p>
+        <p>KG SYNDICATE — 極道 — "Blood bound. Steel forged."</p>
+        <p style="margin-top: 12px;">© 2026 KG Syndicate | All rights reserved.</p>
     </div>
 
 </body>
