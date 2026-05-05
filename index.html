@@ -18,7 +18,6 @@
             line-height: 1.5;
         }
 
-        /* Header */
         .header {
             text-align: center;
             padding: 40px 20px 20px;
@@ -34,7 +33,6 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
 
         .sub {
@@ -44,7 +42,6 @@
             margin-top: 8px;
         }
 
-        /* Navigation */
         .nav {
             display: flex;
             justify-content: center;
@@ -65,17 +62,14 @@
 
         .nav a:hover {
             color: #f5cf9f;
-            text-shadow: 0 0 3px #a05e2c;
         }
 
-        /* Container */
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 32px 24px;
         }
 
-        /* Faction Grid */
         .faction-grid {
             display: flex;
             flex-wrap: wrap;
@@ -105,7 +99,6 @@
             font-size: 20px;
             font-weight: bold;
             color: #e6c394;
-            letter-spacing: -0.5px;
         }
 
         .faction-members {
@@ -114,7 +107,6 @@
             margin-top: 6px;
         }
 
-        /* Sections */
         .section {
             margin-bottom: 56px;
         }
@@ -147,11 +139,6 @@
             border: 1px solid #332419;
         }
 
-        .clan-list li strong {
-            color: #f3d59b;
-        }
-
-        /* Team Grid */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -179,7 +166,6 @@
             margin-top: 8px;
         }
 
-        /* Button Grid */
         .button-grid {
             display: flex;
             flex-wrap: wrap;
@@ -206,7 +192,6 @@
             background: #b87c4f;
             color: #0c0c0c;
             transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(184,124,79,0.5);
         }
 
         .game-list {
@@ -242,29 +227,28 @@
             margin-top: 8px;
         }
 
-        .profile-card {
-            background: #100b08;
-            padding: 12px 20px;
-            border-radius: 40px;
+        .faction-double-buttons {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
             flex-wrap: wrap;
-            gap: 10px;
         }
 
-        .profile-rank {
-            color: #e6c394;
+        .btn-small {
+            background: #1e1610;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
             font-weight: bold;
-        }
-
-        .profile-link {
-            color: #b87c4f;
-            text-decoration: none;
-        }
-
-        .profile-link:hover {
             color: #e6c394;
+            text-decoration: none;
+            border: 1px solid #b87c4f;
+            transition: 0.2s;
+        }
+
+        .btn-small:hover {
+            background: #b87c4f;
+            color: #0c0c0c;
         }
 
         hr {
@@ -306,33 +290,131 @@
 
     <div class="container">
 
-        <!-- HEAD OF OPERATIONS -->
+        <!-- HEAD OF OPERATIONS (static card) -->
         <div class="faction-card" style="max-width: 300px; margin-bottom: 40px;">
             <div class="faction-title">HEAD OF OPERATIONS</div>
-            <div class="faction-members">Tadahiro-WarCommander</div>
+            <div class="faction-members">Khaos General</div>
         </div>
 
-        <!-- ALLIES / OPPOSITION / NEUTRAL / DISBANDED -->
-        <div class="faction-grid">
+        <!-- Factions Grid: ALLIES / OPPOSITION / NEUTRAL / DISBANDED (with dynamic buttons) -->
+        <div class="faction-grid" id="factions">
+            <!-- ALLIES -->
             <div class="faction-card">
                 <div class="faction-title">ALLIES</div>
-                <div class="faction-members">Michiaka-ikka 高松一族<br>森山一家 Moriyama-ikka</div>
+                <div class="faction-members">
+                    <strong>剣聖隊 • Kensei-Tai</strong><br>
+                    <strong>Chosen Devils | 選ばれた悪魔</strong>
+                </div>
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/381594149/Kensei-Tai#!/about" target="_blank" class="btn-small">Kensei-Tai Group</a>
+                    <a href="https://www.roblox.com/users/471541521/profile" target="_blank" class="btn-small">Kensei-Tai Leader</a>
+                </div>
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/1051291555/Chosen-Devils#!/about" target="_blank" class="btn-small">Chosen Devils Group</a>
+                    <a href="https://www.roblox.com/users/5501291398/profile" target="_blank" class="btn-small">Chosen Devils Leader</a>
+                </div>
             </div>
+
+            <!-- OPPOSITION -->
             <div class="faction-card">
                 <div class="faction-title">OPPOSITION</div>
-                <div class="faction-members">KG<br>刻聖·Kensei-Tai<br>Shigaki-Ikka 志垣一家</div>
+                <div class="faction-members">
+                    CATHEDRAL<br>
+                    榎本一家 (Enomoto-ikka)<br>
+                    池田一家 (Ikeda-ikka)<br>
+                    CHASERS | チェイサー<br>
+                    市和会 (Ichiwa-Kai)<br>
+                    高横会 (Takahashi-Kai)<br>
+                    Meowfia<br>
+                    Valhalla | 天使<br>
+                    Michitaka-ikka 高松一族
+                </div>
+                <!-- CATHEDRAL -->
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/34645685/CATHEDR-L#!/affiliates" target="_blank" class="btn-small">CATHEDRAL Group</a>
+                    <a href="https://www.roblox.com/users/5008342513/profile" target="_blank" class="btn-small">CATHEDRAL Leader</a>
+                </div>
+                <!-- 榎本一家 -->
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/35488582/Enomoto-ikka#!/about" target="_blank" class="btn-small">Enomoto-ikka Group</a>
+                    <a href="https://www.roblox.com/users/343495007/profile" target="_blank" class="btn-small">Enomoto-ikka Leader</a>
+                </div>
+                <!-- 池田一家 -->
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/13835630/Ikeda-ikka" target="_blank" class="btn-small">Ikeda-ikka Group</a>
+                    <a href="https://www.roblox.com/users/1921057627/profile" target="_blank" class="btn-small">Ikeda-ikka Leader</a>
+                </div>
+                <!-- CHASERS -->
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/16357730/CHASERS#!/about" target="_blank" class="btn-small">CHASERS Group</a>
+                    <a href="https://www.roblox.com/users/2446352849/profile" target="_blank" class="btn-small">CHASERS Leader</a>
+                </div>
+                <!-- 市和会 -->
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/13167819/Ichiwa-Kai" target="_blank" class="btn-small">Ichiwa-Kai Group</a>
+                    <a href="https://www.roblox.com/users/106273005/profile" target="_blank" class="btn-small">Ichiwa-Kai Leader</a>
+                </div>
+                <!-- 高横会 -->
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/222901971/Takahashi-Kai#!/about" target="_blank" class="btn-small">Takahashi-Kai Group</a>
+                    <a href="https://www.roblox.com/users/9925060114/profile" target="_blank" class="btn-small">Takahashi-Kai Leader</a>
+                </div>
+                <!-- Meowfia -->
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/35765418/Meowfia#!/about" target="_blank" class="btn-small">Meowfia Group</a>
+                    <a href="https://www.roblox.com/users/4744871019/profile" target="_blank" class="btn-small">Meowfia Leader</a>
+                </div>
+                <!-- Valhalla -->
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/2681641/Valhalla#!/about" target="_blank" class="btn-small">Valhalla Group</a>
+                    <a href="https://www.roblox.com/users/1295520896/profile" target="_blank" class="btn-small">Valhalla Leader</a>
+                </div>
+                <!-- Michitaka-ikka -->
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/33198013/Michitaka-ikka#!/about" target="_blank" class="btn-small">Michitaka-ikka Group</a>
+                    <a href="https://www.roblox.com/users/1488839731/profile" target="_blank" class="btn-small">Michitaka-ikka Leader</a>
+                </div>
             </div>
+
+            <!-- NEUTRAL -->
             <div class="faction-card">
                 <div class="faction-title">NEUTRAL</div>
-                <div class="faction-members">@1<br>@1<br>@1</div>
+                <div class="faction-members">
+                    Shigaki-Ikka 志垣一家<br>
+                    Aldmyr Family<br>
+                    雪竜一家ㆍSetsuryu-Ikka<br>
+                    Osaka Kurogane-kai 黒鉄会
+                </div>
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/14440827/Shigaki-Ikka#!/about" target="_blank" class="btn-small">Shigaki-Ikka Group</a>
+                    <a href="https://www.roblox.com/users/3322735435/profile" target="_blank" class="btn-small">Shigaki-Ikka Leader</a>
+                </div>
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/15872214/Aldmyr-Family#!/about" target="_blank" class="btn-small">Aldmyr Family Group</a>
+                    <a href="https://www.roblox.com/users/410229788/profile" target="_blank" class="btn-small">Aldmyr Family Leader</a>
+                </div>
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/985657070/Setsuryu-Ikka#!/about" target="_blank" class="btn-small">Setsuryu-Ikka Group</a>
+                    <a href="https://www.roblox.com/users/581306271/profile" target="_blank" class="btn-small">Setsuryu-Ikka Leader</a>
+                </div>
+                <div class="faction-double-buttons">
+                    <a href="https://www.roblox.com/communities/35788564/Osaka-Kurogane-kai#!/about" target="_blank" class="btn-small">Osaka Kurogane-kai Group</a>
+                    <a href="https://www.roblox.com/users/7237763077/profile" target="_blank" class="btn-small">Osaka Kurogane-kai Leader</a>
+                </div>
             </div>
+
+            <!-- DISBANDED (no links) -->
             <div class="faction-card">
                 <div class="faction-title">DISBANDED</div>
-                <div class="faction-members">周山一家 Okayama-ikka<br>Chosen Devils 選<br>Aldmyr Family</div>
+                <div class="faction-members">
+                    周山一家 Okayama-ikka<br>
+                    Chosen Devils 選 (old)<br>
+                    Aldmyr Family (early)
+                </div>
             </div>
         </div>
 
-        <!-- CLANS SECTION -->
+        <!-- CLANFILES -->
         <section id="clans" class="section">
             <h2 class="section-title">CLANFILES</h2>
             <ul class="clan-list">
@@ -346,26 +428,16 @@
             </ul>
         </section>
 
-        <!-- TEAM SECTION -->
+        <!-- TEAM (updated roles) -->
         <section id="team" class="section">
             <h2 class="section-title">TEAM</h2>
             <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-name">Tadahiro-WarCommander</div>
-                    <div class="team-role">Head of Operations</div>
-                </div>
-                <div class="team-card">
-                    <div class="team-name">KGSYNDICATE</div>
-                    <div class="team-role">Founder</div>
-                </div>
-                <div class="team-card">
-                    <div class="team-name">KhaosGeneral-Spearhead</div>
-                    <div class="team-role">Command</div>
-                </div>
-                <div class="team-card">
-                    <div class="team-name">Kilihito</div>
-                    <div class="team-role">Enforcer</div>
-                </div>
+                <div class="team-card"><div class="team-name">Khaos General</div><div class="team-role">Head of Operations</div></div>
+                <div class="team-card"><div class="team-name">Tadahiro</div><div class="team-role">Management Lead</div></div>
+                <div class="team-card"><div class="team-name">Khaos Gladius</div><div class="team-role">Management Lead</div></div>
+                <div class="team-card"><div class="team-name">Khaos Morimoto</div><div class="team-role">Administrator</div></div>
+                <div class="team-card"><div class="team-name">Holywound</div><div class="team-role">Administrator</div></div>
+                <div class="team-card"><div class="team-name">The indian warlord</div><div class="team-role">Serverholder</div></div>
             </div>
         </section>
 
@@ -373,57 +445,30 @@
         <section id="games" class="section">
             <h2 class="section-title">OPERATIONAL GAMES</h2>
             <div class="game-list">
-                <div class="game-card">
-                    <a href="https://www.roblox.com/games/17375940438/SHINJUKU-1988" target="_blank">SHINJUKU 1988</a>
-                    <p>We march to our deaths in pursuit of the ill-gotten, the ephemeral.</p>
-                </div>
-                <div class="game-card">
-                    <a href="https://www.roblox.com/games/16541340872/Clark-County" target="_blank">Clark County</a>
-                    <p>Operational territory in the heart of Nevada.</p>
-                </div>
-                <div class="game-card">
-                    <a href="https://www.roblox.com/games/4245915895/Miami-1986" target="_blank">Miami 1986</a>
-                    <p>80s Miami life — faction wars, law enforcement, criminal empires.</p>
-                </div>
-                <div class="game-card">
-                    <a href="https://www.roblox.com/games/6394205669/Shinjuku-2006" target="_blank">Shinjuku, 2006</a>
-                    <p>Kabukicho's largest ever crime wave — scavenge, run, kill to survive.</p>
-                </div>
+                <div class="game-card"><a href="https://www.roblox.com/games/17375940438/SHINJUKU-1988" target="_blank">SHINJUKU 1988</a><p>We march to our deaths in pursuit of the ill-gotten, the ephemeral.</p></div>
+                <div class="game-card"><a href="https://www.roblox.com/games/16541340872/Clark-County" target="_blank">Clark County</a><p>Operational territory in the heart of Nevada.</p></div>
+                <div class="game-card"><a href="https://www.roblox.com/games/4245915895/Miami-1986" target="_blank">Miami 1986</a><p>80s Miami life — faction wars, law enforcement, criminal empires.</p></div>
+                <div class="game-card"><a href="https://www.roblox.com/games/6394205669/Shinjuku-2006" target="_blank">Shinjuku, 2006</a><p>Kabukicho's largest ever crime wave — scavenge, run, kill to survive.</p></div>
             </div>
         </section>
 
-        <!-- MANAGEMENT + RANKS -->
+        <!-- MANAGEMENT / COMMAND (rank profiles) -->
         <section id="management" class="section">
             <h2 class="section-title">MANAGEMENT / COMMAND</h2>
             <div class="team-grid">
-                <div class="profile-card">
-                    <span class="profile-rank">[DG] Divine General</span>
-                    <a class="profile-link" href="https://www.roblox.com/users/1855859561/profile" target="_blank">View Profile →</a>
-                </div>
-                <div class="profile-card">
-                    <span class="profile-rank">[WM] Warbound Sovereign</span>
-                    <a class="profile-link" href="https://www.roblox.com/users/10086745469/profile" target="_blank">View Profile →</a>
-                </div>
-                <div class="profile-card">
-                    <span class="profile-rank">[WM] Warbound Sovereign</span>
-                    <a class="profile-link" href="https://www.roblox.com/users/646026255/profile" target="_blank">View Profile →</a>
-                </div>
-                <div class="profile-card">
-                    <span class="profile-rank">[DC] Divine Commander</span>
-                    <a class="profile-link" href="https://www.roblox.com/users/3330430792/profile" target="_blank">View Profile →</a>
-                </div>
-                <div class="profile-card">
-                    <span class="profile-rank">[WL] Warlord</span>
-                    <a class="profile-link" href="https://www.roblox.com/users/93042625/profile" target="_blank">View Profile →</a>
-                </div>
+                <div class="profile-card"><span class="profile-rank">[DG] Divine General</span><a class="profile-link" href="https://www.roblox.com/users/1855859561/profile" target="_blank">View Profile →</a></div>
+                <div class="profile-card"><span class="profile-rank">[WM] Warbound Sovereign</span><a class="profile-link" href="https://www.roblox.com/users/10086745469/profile" target="_blank">View Profile →</a></div>
+                <div class="profile-card"><span class="profile-rank">[WM] Warbound Sovereign</span><a class="profile-link" href="https://www.roblox.com/users/646026255/profile" target="_blank">View Profile →</a></div>
+                <div class="profile-card"><span class="profile-rank">[DC] Divine Commander</span><a class="profile-link" href="https://www.roblox.com/users/3330430792/profile" target="_blank">View Profile →</a></div>
+                <div class="profile-card"><span class="profile-rank">[WL] Warlord</span><a class="profile-link" href="https://www.roblox.com/users/93042625/profile" target="_blank">View Profile →</a></div>
             </div>
         </section>
 
-        <!-- FOOTER LINKS (Buttons) -->
+        <!-- Footer Buttons (MANAGEMENT button now standalone) -->
         <div class="button-grid">
             <a href="#clans" class="btn">CLANFILES</a>
             <a href="#games" class="btn">OPERATIONAL GAMES</a>
-            <a href="#management" class="btn">CATHEDRAL / MANAGEMENT</a>
+            <a href="#management" class="btn">MANAGEMENT</a>
             <a href="#" class="btn">ABOUT US</a>
         </div>
 
@@ -433,6 +478,31 @@
         <p>KG SYNDICATE — 極道 — "Blood bound. Steel forged."</p>
         <p style="margin-top: 12px;">© 2026 KG Syndicate | All rights reserved.</p>
     </div>
+
+    <style>
+        /* Additional style for profile cards inside management section */
+        .profile-card {
+            background: #100b08;
+            padding: 12px 20px;
+            border-radius: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .profile-rank {
+            color: #e6c394;
+            font-weight: bold;
+        }
+        .profile-link {
+            color: #b87c4f;
+            text-decoration: none;
+        }
+        .profile-link:hover {
+            color: #e6c394;
+        }
+    </style>
 
 </body>
 </html>
